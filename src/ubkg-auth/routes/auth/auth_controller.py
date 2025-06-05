@@ -5,7 +5,7 @@ from app_utils.error import bad_request_error
 auth_blueprint = Blueprint('auth', __name__)
 
 
-@auth_blueprint.route('/', methods=['POST'])
+@auth_blueprint.route('/umls-auth', methods=['POST'])
 def umls_auth():
 
     # Get the UMLS API key from the submitting form.

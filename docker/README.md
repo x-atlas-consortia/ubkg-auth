@@ -73,5 +73,5 @@ Once at least two buildx builders are available, the build workflow will build a
 4. `./docker-development.sh push` will push tagged images for both linux/amd64 and linux/arm64 architectures to the Docker hub repo named **hubmap/ubkg-api**:
 
 # Application dependency
-The ubkg-auth requires a configuration file named **app.cfg**, which can be built from a copy of **app.cfg.example**.
+The ubkg-auth requires a configuration file named **ubkg-auth-app.cfg**, which can be built from a copy of **ubkg-auth-app.cfg.example**.
 As a component of the **ubkg-front-end** service in **UBKGBox**, the ubkg-auth assumes that a copy of the **app.cfg** file will be in an external bind mount directory named _api_instance_.

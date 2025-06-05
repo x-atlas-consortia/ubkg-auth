@@ -1,0 +1,24 @@
+.idea/
+.DS_Store
+server.bak/
+venv/
+**/*.bak
+\#*\#
+**~
+
+# Ignore config file
+src/ubkg-auth/instance/app.cfg
+src/ubkg-api/instance/*
+!src/ubkg-api/instance/app.cfg.example
+
+# Ignore the generated BUILD file
+BUILD
+
+# log files in any path
+**/*.log
+
+**/__pycache__
+
+**/.pytest_cache
+**/dist
+

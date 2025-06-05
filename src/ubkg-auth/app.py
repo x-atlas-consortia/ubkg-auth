@@ -3,8 +3,10 @@ import sys
 import logging
 from pathlib import Path
 from flask import Flask
-import requests
 
+from routes.auth.auth_controller import auth_blueprint
+
+# Set up logging.
 logging.basicConfig(format='[%(asctime)s] %(levelname)s in %(module)s: %(message)s', level=logging.DEBUG,
                     datefmt='%Y-%m-%d %H:%M:%S')
 logger = logging.getLogger(__name__)
@@ -39,6 +41,11 @@ class UbkgAuth:
         self.app.package_base_dir = package_base_dir
         logger.info(f"package_base_dir: {package_base_dir}")
 
+        # Load the app.cfg file.
+        self.app.config.from_pyfile(config)
+
+        self.app.register_blueprint(auth_blueprint)
+
         @self.app.route('/', methods=['GET'])
         def index():
             return "Hello! This is UBKG UMLS authenticaton service."
@@ -50,7 +57,7 @@ class UbkgAuth:
 
 if __name__ == "__main__":
     try:
-        ubkg_app = UbkgAuth('./app.cfg', Path(__file__).absolute().parent.parent.parent).app
+        ubkg_app = UbkgAuth('./ubkg-auth-app.cfg', Path(__file__).absolute().parent.parent.parent).app
         ubkg_app.run(host='0.0.0.0', port="5002")
     except Exception as e:
         print("Error during starting debug server.")
