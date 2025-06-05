@@ -1,2 +1,2 @@
 # ubkg-auth
-A service to authenticate ubkg consumers against the umls API
+A service to authenticate ubkg consumers against the umls API.
