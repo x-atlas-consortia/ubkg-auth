@@ -1,6 +1,6 @@
 # Unified Biomedical Knowledge Graph
 
-## Integrating the ubkg-auth service into a UBKGBox deployment (ubkg-front-end)
+## Integrating the ubkg-auth service into a UBKGBox deployment
 
 **UBKGBox** is a self-contained, networked, multi-container UBKG application featuring:
 - a container hosting a UBKG context running in neo4j, built from the [ubkg-neo4j](https://github.com/x-atlas-consortia/ubkg-neo4j) Docker architecture
@@ -74,4 +74,4 @@ Once at least two buildx builders are available, the build workflow will build a
 
 # Application dependency
 The ubkg-auth requires a configuration file named **ubkg-auth-app.cfg**, which can be built from a copy of **ubkg-auth-app.cfg.example**.
-As a component of the **ubkg-front-end** service in **UBKGBox**, the ubkg-auth assumes that a copy of the **app.cfg** file will be in an external bind mount directory named _api_instance_.
+As a component of  **UBKGBox**, the ubkg-auth assumes that a copy of the **ubkg-auth-app.cfg** file will be in an external bind mount directory named _api_instance_.
