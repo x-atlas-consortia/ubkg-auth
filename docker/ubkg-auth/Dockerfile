@@ -1,14 +1,16 @@
-# Dockerfile for UBKGBox ubkg-front-end service container build
+# Dockerfile for UBKGBox ubkg-authservice container build
 
 # UBKGBox is a turnkey, self-contained Docker Compose deployment that composes:
-# 1. a "ubkg-back-end" service container running an instance of a UBKG contex--i.e, a neo4j database
-#    built using the workflow described in the ubkg-neo4j repo.
-# 2. a "ubkg-front-end" service container running various clients, including
-#    a. the ubkg-api Flask REST API
-#    b. the Guesdt HTML/JavaScript application
-#    c. an nginx web server/reverse proxy
+# - a container hosting a UBKG context running in neo4j, built from the [ubkg-neo4j](https://github.com/x-atlas-consortia/ubkg-neo4j) Docker architecture
+# - containers that work with the UBKG instance, including:
+#   - an instance of the UBKG API (https://github.com/x-atlas-consortia/ubkg-api), a REST API
+#   - Swagger documentation for the UBKG API
+#   - an instance of [Guesdt](https://github.com/x-atlas-consortia/Guesdt), a Web UI that represents the UBKG in tree view
+#   - the neo4j browser
+# - a front-end UI with networked links to client components, built from the [ubkg-front-end](https://github.com/x-atlas-consortia/ubkg-front-end) architecture
 
-# The ubkg-api is not deployed as a standalone component.
+
+# The ubkg-auth is not deployed as a standalone component.
 # It is either compiled as a PyPI package and consumed by child APIs (e.g., hs-ontology-api) or
 # as a component of the UBKGBox Compose application.
 # ---------------------------

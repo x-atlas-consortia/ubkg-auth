@@ -44,7 +44,7 @@ To address yum file system size, increase the **Disk usage limit** to a value la
 To publish **ubkg-auth** images in the Docker Hub registry, the developer must be logged in to Docker Hub with an account that has privileges in the [hubmap consortium](https://hub.docker.com/orgs/hubmap/teams/consortium/members) organization.
 
 ## Docker Compose for multiple architectures
-The Docker Compose workflow will push **ubkg-front-end** images to Docker Hub for both 
+The Docker Compose workflow will push **ubkg-auth** images to Docker Hub for both 
 linux/amd64 (Intel) and linux/arm64(OSX) architectures. This requires that:
 - the development machine runs two buildx builders.
 - the **docker-compose.development.yml** file includes keys that enable multiple architectures (**tags** and **x-bake**)

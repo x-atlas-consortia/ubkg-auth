@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script for calling Docker compose to control the ubkg-front-end services container of UBKGBox.
+# Script for calling Docker compose to control the ubkg-auth services container of UBKGBox.
 # This script differs from the docker-deployment.sh script primarily in that it allows for
 # building a new image.
 
@@ -10,11 +10,11 @@
 # 2. config
 #    Calls Docker compose config.
 # 3. build
-#    a. Refreshes ubkg-api source from the current branch. The src directory is copied under
+#    a. Refreshes ubkg-auth source from the current branch. The src directory is copied under
 #       the docker directory, and it is this src that the Dockerfile copies to the image.
 #    b. Recalculates content of BUILD file in the container from branch information.
-#    c. Recalculates content of the VERSION file in the container from the ubkg-api repository.
-#       The UBKGBox deployment version will correspond to the version of the ubkg-api.
+#    c. Recalculates content of the VERSION file in the container from the ubkg-auth repository.
+#       The UBKGBox deployment version will correspond to the version of the ubkg-ath.
 #    d. Builds a new image.
 # 4. start
 #    Builds a container from the current image with docker compose up.
