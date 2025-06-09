@@ -5,13 +5,19 @@ from app_utils.error import bad_request_error
 auth_blueprint = Blueprint('auth', __name__)
 
 
-@auth_blueprint.route('/umls-auth', methods=['POST'])
+@auth_blueprint.route('/umls-auth', methods=['POST', 'GET'])
 def umls_auth():
 
-    # Get the UMLS API key from the submitting form.
-    umls_key = request.form['umls-key']
-    if umls_key is None:
-        bad_request_error("Must include parameter 'umls-key'")
+    if request.method == 'POST':
+        # Get the UMLS API key from the submitting form.
+        umls_key = request.form['umls-key']
+        if umls_key is None:
+            bad_request_error("Must include parameter 'umls-key'")
+    if request.method == 'GET':
+        # Get the UMLS API key from the request argument.
+        umls_key = request.args.get('umls-key')
+        if umls_key is None:
+            bad_request_error("Must include parameter 'umls-key'")
 
     """
     Although the 'Validating UMLS Licensees for Third-Party Application Developers'

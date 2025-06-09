@@ -17,7 +17,7 @@
 FROM redhat/ubi9:9.4
 
 # image LABEL layer
-LABEL description="UBKGBox ubkg-front-end"
+LABEL description="UBKGBox ubkg-auth"
 
 # -----------------
 # INSTALL SYSTEM PACKAGES VIA YUM

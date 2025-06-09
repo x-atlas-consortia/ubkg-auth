@@ -1,7 +1,7 @@
 from app import UbkgAuth
 from pathlib import Path
 
-application = UbkgAPI('app.cfg', Path(__file__).absolute().parent.parent.parent).app
+application = UbkgAuth('ubkg-auth-app.cfg', Path(__file__).absolute().parent.parent.parent).app
 
 if __name__ == '__main__':
     application.run()
