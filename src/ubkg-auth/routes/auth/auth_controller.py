@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, current_app, make_response, request
+from flask import Blueprint, jsonify, current_app, make_response, request, Response
 import requests
 from app_utils.error import bad_request_error
 
@@ -30,14 +30,17 @@ def umls_auth():
     url = base_url + '?validatorApiKey=' + umls_key + '&apiKey=' + umls_key
 
     # The UMLS API returns either "true" or "false".
+    # Nginx auth_request ignores the response body.
+    # We use body here only for direct visit to this endpoint.
+
     result = requests.get(url=url)
 
     if result.status_code != 200:
         # The UMLS API returns a 401 if the key is not valid.
-        return jsonify(False), 403  # forbidden
-
+        err_msg = "Invalid UMLS API key."
+        return make_response(jsonify({"message": "UMLS-API: Not authorized"}), 401)
     if result.json():
-        return jsonify(True), 200
+        return make_response(jsonify({"message": "UMLS-API: Authorized"}), 200)
     else:
-        return jsonify(False), 403  # forbidden
+        return make_response(jsonify({"message": "UMLS-API: Not authorized"}), 401)
 
