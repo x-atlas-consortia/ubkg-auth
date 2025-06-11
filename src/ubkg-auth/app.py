@@ -48,7 +48,7 @@ class UbkgAuth:
 
         @self.app.route('/', methods=['GET'])
         def index():
-            return "Hello! This is UBKG UMLS authenticaton service."
+            return "Hello! This is UBKG UMLS authentication service."
 
 
 ####################################################################################################

@@ -31,7 +31,13 @@ def umls_auth():
 
     # The UMLS API returns either "true" or "false".
     result = requests.get(url=url)
+
+    if result.status_code != 200:
+        # The UMLS API returns a 401 if the key is not valid.
+        return jsonify(False), 403  # forbidden
+
     if result.json():
         return jsonify(True), 200
     else:
         return jsonify(False), 403  # forbidden
+
