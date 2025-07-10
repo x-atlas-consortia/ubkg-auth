@@ -36,7 +36,7 @@ def internal_server_error(err_msg):
 
 def bad_request_error(err_msg):
     """
-    Throws error for 400 Bad Reqeust with message
+    Throws error for 400 Bad Request with message
     Parameters
     ----------
     err_msg : str

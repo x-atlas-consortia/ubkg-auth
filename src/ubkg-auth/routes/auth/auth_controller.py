@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, current_app, make_response, request, Response
 import requests
-from app_utils.error import bad_request_error
+from app_utils.error import bad_request_error, unauthorized_error
 
 auth_blueprint = Blueprint('auth', __name__)
 
@@ -17,7 +17,7 @@ def umls_auth():
         # Get the UMLS API key from the request argument.
         umls_key = request.args.get('umls-key')
         if umls_key is None:
-            bad_request_error("Must include parameter 'umls-key'")
+            unauthorized_error("Must include parameter 'umls-key'")
 
     """
     Although the 'Validating UMLS Licensees for Third-Party Application Developers'
