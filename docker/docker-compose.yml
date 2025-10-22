@@ -2,7 +2,7 @@ services:
 
   # The ubkg-auth service contains clients for the UBKG neo4j, including the ubkg-api and Guesdt.
 
-  ubkg-api:
+  ubkg-auth:
     hostname: ubkg-auth
     container_name: ubkg-auth
     # Map host machine port 7000 to container port 8080
