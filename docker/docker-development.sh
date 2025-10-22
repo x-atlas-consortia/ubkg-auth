@@ -112,7 +112,7 @@ else
     elif [ "$1" = "build" ]; then
         # Delete the copied source code dir if exists
         if [ -d "ubkg-auth/src" ]; then
-            rm -rf ubkg-api/src
+            rm -rf ubkg-auth/src
         fi
 
         # Copy over the src folder
